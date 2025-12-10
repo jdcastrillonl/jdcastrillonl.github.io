@@ -159,7 +159,7 @@ let currentUser = null; // usuario activo
 let usersData = {}; // almacenamiento de resultados por usuario
 const THRESHOLD_PUNTUACION = 2;
 
-/* ------------------ REGISTRO Y SELECCI N DE USUARIO ------------------ */
+/* ------------------ REGISTRO Y SELECCION DE USUARIO ------------------ */
 registerBtn.onclick = ()=>{
   const name = userNameInput.value.trim();
   if(!name){ alert('Ingresa un nombre'); return; }
@@ -302,7 +302,7 @@ recordBtn.onclick=()=>{
   };
 
   mediaRecorder.start(); recordingStart=Date.now();
-  setStatus('?? GRABANDO'); recordBtn.disabled=true; stopBtn.disabled=false; switchBtn.disabled=true;
+  setStatus('GRABANDO'); recordBtn.disabled=true; stopBtn.disabled=false; switchBtn.disabled=true;
 
   // Mostrar tiempo de grabaci n
   timerInterval=setInterval(()=>{
@@ -366,7 +366,7 @@ async function postRecordingAnalysis(){
   if(averageScore>=THRESHOLD_PUNTUACION){
     analysisStatus.innerText='Análisis Finalizado'; 
     repResult.style.color='var(--accent)'; 
-    repResult.innerText='?  ÓPTIMO para iniciar medidas';
+    repResult.innerText='ÓPTIMO para iniciar medidas';
 
     const medidas=measureBody(lastKeypoints);
     if(!medidas){measurementsEl.innerText='No se pudieron extraer medidas.'; return;}
@@ -398,4 +398,5 @@ switchBtn.onclick=()=>{
 startBtn.onclick=startCamera;
 </script>
 </body>
+
 </html>
